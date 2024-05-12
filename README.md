@@ -1,5 +1,5 @@
 # projeto git
- Intituto_Bezalel
+ Instituto_Bezalel
 
 
 # PROJETO INSTITUTO BEZALEL 
