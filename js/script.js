@@ -1,42 +1,34 @@
-const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+var words = [
+  { image: "gato.jpg", answer: "gato" },
+  { image: "cachorro.jpg", answer: "cachorro" },
+  { image: "livro.jpg", answer: "livro" },
+  // Adicione mais objetos conforme necessário
+];
 
-function shuffle(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
+function getRandomWord() {
+  return words[Math.floor(Math.random() * words.length)];
+}
+
+function displayRandomWord() {
+  var randomWord = getRandomWord();
+  document.getElementById("word-image").src = randomWord.image;
+  document.getElementById("answer").value = "";
+  document.getElementById("result").innerText = "";
+}
+
+function checkAnswer() {
+  var answer = document.getElementById("answer").value.toLowerCase();
+  var correctAnswer = document.getElementById("word-image").alt;
+  var resultContainer = document.getElementById("result");
+
+  if (answer === correctAnswer) {
+      resultContainer.innerText = "Correto! Parabéns!";
+      // Exibir outra palavra após alguns segundos
+      setTimeout(displayRandomWord, 2000);
+  } else {
+      resultContainer.innerText = "Incorreto. Tente novamente.";
   }
-  return array;
 }
 
-function createGame() {
-  const shuffledAlphabet = shuffle(alphabet.split(''));
-  const gameContainer = document.getElementById('game-container');
-
-  shuffledAlphabet.forEach(letter => {
-    const letterDiv = document.createElement('div');
-    letterDiv.classList.add('letter');
-    letterDiv.textContent = letter;
-    gameContainer.appendChild(letterDiv);
-
-    letterDiv.addEventListener('click', () => {
-      if (letterDiv.textContent === letterDiv.dataset.match) {
-        letterDiv.classList.add('matched');
-        const allMatched = [...document.querySelectorAll('.matched')];
-        if (allMatched.length === alphabet.length) {
-          alert('Parabéns! Você encontrou todos os pares!');
-        }
-      }
-    });
-  });
-
-  const matchedLetters = shuffle([...shuffledAlphabet]);
-  shuffledAlphabet.forEach((letter, index) => {
-    const letterDiv = document.createElement('div');
-    letterDiv.classList.add('letter');
-    letterDiv.textContent = matchedLetters[index];
-    letterDiv.dataset.match = letter;
-    gameContainer.appendChild(letterDiv);
-  });
-}
-
-createGame();
+// Exibir uma palavra aleatória quando a página for carregada
+window.onload = displayRandomWord;

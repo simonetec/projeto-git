@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alphabet Matching Game</title>
-  <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Alfabetização</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <h1>Alphabet Matching Game</h1>
-  <div id="game-container"></div>
+    <div class="container">
+        <h1>Jogo de Alfabetização</h1>
+        <div id="image-container">
+            <img id="word-image" src="imagem_jogo/gato.jpg">
+        </div>
+        <input type="text" id="answer" placeholder="Complete a palavra">
+        <button onclick="checkAnswer()">Verificar</button>
+        <p id="result"></p>
+    </div>
 
-  <script src="js/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

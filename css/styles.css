@@ -1,26 +1,26 @@
-body {
-    font-family: Arial, sans-serif;
-  }
-  
-  #game-container {
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 500px;
-    margin: 0 auto;
-  }
-  
-  .letter {
-    width: 50px;
-    height: 50px;
-    border: 1px solid #000;
-    margin: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    cursor: pointer;
-  }
-  
-  .matched {
-    background-color: lightgreen;
-  }
+.container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+#image-container {
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  padding: 8px;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+button {
+  padding: 8px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+p#result {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+}
